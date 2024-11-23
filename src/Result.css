@@ -1,0 +1,130 @@
+.result-description {
+  font-size: 1.25rem;
+  grid-column: span 5 / span 5;
+  grid-row: span 2 / span 2;
+  grid-row-start: 4;
+  background-color: #323232;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.result-details {
+  display: flex;
+  font-size: 1rem;
+  grid-column: span 3 / span 3;
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 2;
+  background-color: #323232;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.result-detailContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  height: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.result-detailsLeft {
+  grid-row: span 3 / span 3;
+  grid-row-start: 2;
+}
+
+.result-detailsRight {
+  grid-row: span 3 / span 3;
+  grid-row-start: 2;
+}
+
+.result-flag {
+  display: flex;
+  grid-column: span 2 / span 2;
+  grid-row: span 3 / span 3;
+  background-color: #323232;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.result-flag img {
+  height: 75%;
+  width: 75%;
+}
+
+.result-main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.result-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  grid-column: span 3 / span 3;
+  grid-column-start: 3;
+  background-color: #323232;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.result-officialName {
+  grid-column: span 2 / span 2;
+}
+
+@media (max-width: 991px) {
+  .result-description {
+    font-size: 1rem;
+    grid-column: span 5 / span 5;
+    grid-row: span 3 / span 3;
+    grid-row-start: 5;
+    padding: 0.65rem;
+  }
+
+  .result-details {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+    grid-row-start: 3;
+    padding: 0.65rem;
+  }
+
+  .result-detailContainer {
+    font-size: 1.25rem;
+  }
+
+  .result-flag {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    padding: 0.65rem;
+  }
+
+  .result-main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 0.65rem;
+    padding: 0.65rem;
+  }
+
+  .result-name {
+    font-size: 2rem;
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    padding: 0.65rem;
+  }
+}

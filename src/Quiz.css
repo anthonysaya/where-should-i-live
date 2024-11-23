@@ -1,0 +1,26 @@
+.quiz-container {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  height: 100%;
+  width: 100%;
+}
+
+.quiz-header {
+  background-color: #660707;
+  contain: strict;
+  display: flex;
+  height: 1fr;
+  justify-content: center;
+  width: 100%;
+}
+
+.quiz-header img {
+  height: 90%;
+}
+
+.quiz-main {
+  background-color: #4b4b4b;
+  color: #fff;
+  height: 5fr;
+  width: 100%;
+}

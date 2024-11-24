@@ -20,7 +20,6 @@ function Start(props: any) {
           <button className="start-button" id="start" onClick={handleStart}>
             Start
           </button>
-          <br />
           <button className="start-button" id="credits" onClick={handleCredits}>
             Credits
           </button>

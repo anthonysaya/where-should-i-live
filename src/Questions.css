@@ -2,46 +2,53 @@
   display: grid;
   contain: strict;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   padding: 1rem;
   height: 100%;
   width: 100%;
   overflow-y: scroll;
 }
 
+.line-break {
+  width: 100%;
+}
+
 .questions-intro {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   font-size: 1.5rem;
   font-style: italic;
   grid-row: span 1 / span 1;
   grid-row-start: 1;
   justify-content: center;
-}
-
-.questions-topic {
-  display: flex;
-  font-size: 3rem;
-  font-weight: bold;
-  grid-row: span 1 / span 1;
-  grid-row-start: 2;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 mark {
+  display: flex;
   background-color: #2b2b2b;
   color: #fff;
   padding: 1rem;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: bold;
   max-height: fit-content;
+  justify-content: center;
 }
 
 .questions-main {
   align-items: center;
   display: flex;
+  contain: inline-size;
   flex-direction: row;
-  grid-row: span 3 / span 3;
-  grid-row-start: 3;
+  grid-row: span 1 / span 1;
+  grid-row-start: 2;
   height: 100%;
   justify-content: center;
+  min-width: 0;
   width: 100%;
 }
 
@@ -66,7 +73,7 @@ mark {
   align-items: center;
   display: flex;
   grid-row: span 1 / span 1;
-  grid-row-start: 6;
+  grid-row-start: 3;
   justify-content: center;
 }
 
@@ -88,6 +95,7 @@ mark {
   text-wrap: wrap;
   text-align: center;
   overflow-wrap: break-word;
+  width: 100%;
 }
 
 @media (max-width: 991px) {
@@ -95,6 +103,7 @@ mark {
     display: flex;
     align-items: center;
     padding: 0.5rem;
+    font-size: 2.5rem;
   }
 
   .questions-button {
@@ -113,17 +122,13 @@ mark {
     font-size: 1.25rem;
   }
 
-  .questions-topic {
-    font-size: 2.5rem;
-  }
-
   .questions-label {
     font-size: 1rem;
   }
 
   .questions-main {
     flex-direction: column;
-    grid-row-start: 3;
+    grid-row-start: 2;
   }
 
   .questions-slider {

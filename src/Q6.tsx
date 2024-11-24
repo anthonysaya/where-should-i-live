@@ -14,8 +14,8 @@ function Q6(props: any) {
       <section className="questions-container">
         <section className="questions-intro">
           Use the bar below to indicate your feelings on:
-        </section>
-        <section className="questions-topic">
+          <div className="line-break" />
+          <br />
           <mark>Wealth Distribution</mark>
         </section>
         <main className="questions-main">

@@ -14,8 +14,8 @@ function Q4(props: any) {
       <section className="questions-container">
         <section className="questions-intro">
           Use the bar below to indicate your feelings on:
-        </section>
-        <section className="questions-topic">
+          <div className="line-break" />
+          <br />
           <mark>English Proficiency</mark>
         </section>
         <main className="questions-main">

@@ -46,10 +46,9 @@
   grid-row: span 5 / span 5;
   grid-column-start: 1;
   grid-row-start: 2;
-  overflow-x: wrap;
+  overflow-wrap: break-word;
   overflow-y: scroll;
   padding: 1rem;
-  word-wrap: break-word;
   height: 100%;
   width: 100%;
 }

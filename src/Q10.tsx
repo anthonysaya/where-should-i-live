@@ -13,7 +13,7 @@ function Q10(props: any) {
     <>
       <section className="questions-container">
         <section className="questions-intro">
-          Use the bar below to indicate your feelings on:
+          Use the bar to indicate your feelings on:
           <div className="line-break" />
           <br />
           <mark>Motor Vehicles</mark>

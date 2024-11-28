@@ -5,13 +5,13 @@ export default class Country {
   AvgTempC: number;
   AvgTempF: number;
   Capital?: string;
-  Currencies?: string[];
+  Currency?: any;
   DemoIndex: number;
   Demonym?: string;
   EngProficiency: number;
   FlagUrl?: string;
   GiniCoeff: number;
-  Languages?: string[];
+  Languages?: string;
   LongName?: string;
   MeatEatenKgPersonYr: number;
   MdnInternetSpdMbps: number;
@@ -25,7 +25,6 @@ export default class Country {
   VehiclesPer1000: number;
   WikiDesc: string;
   WikiLink: string;
-  ZScore: number;
 
   constructor(code: keyof typeof CountryData) {
     this.cc = code;
@@ -45,7 +44,6 @@ export default class Country {
     this.VehiclesPer1000 = CountryData[this.cc].Vehicles_per_1000;
     this.WikiDesc = CountryData[this.cc].Wikipedia_Description;
     this.WikiLink = CountryData[this.cc].Wikipedia_Link;
-    this.ZScore = 0;
   }
 
   async init(): Promise<any> {
@@ -59,19 +57,17 @@ export default class Country {
     }
     const jsonResponse = await response.json();
 
-    jsonResponse[0].currencies.forEach((currency: any) => {
-      currArray.push(currency.name);
-    });
-    jsonResponse[0].languages.forEach((language: any) => {
-      langArray.push(language);
-    });
     this.Capital = jsonResponse[0].capital;
-    this.Currencies = currArray;
+    this.Currency = Object.values(jsonResponse[0].currencies)[0].name;
     this.FlagUrl = jsonResponse[0].flags.svg;
     this.Demonym = jsonResponse[0].demonyms.eng.m;
-    this.Languages = langArray;
+    this.Languages = Object.values(jsonResponse[0].languages)
+      .map((lang) => `${lang}`)
+      .join(", ");
     this.LongName = jsonResponse[0].name.official;
-    this.Population = jsonResponse[0].population;
+    this.Population = jsonResponse[0].population
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     this.Region = jsonResponse[0].subregion;
   }
 }

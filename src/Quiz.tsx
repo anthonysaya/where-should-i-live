@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.png";
+import Country from "./Country.ts";
+import { countryCodes } from "./CountryCode.ts";
 import Q1 from "./Q1.tsx";
 import Q2 from "./Q2.tsx";
 import Q3 from "./Q3.tsx";
@@ -11,13 +13,59 @@ import Q8 from "./Q8.tsx";
 import Q9 from "./Q9.tsx";
 import Q10 from "./Q10.tsx";
 import Q11 from "./Q11.tsx";
+import Loading from "./Loading.tsx";
 import Result from "./Result.tsx";
 import "./Quiz.css";
 
 function Quiz(props: any) {
+  const [state, setState] = useState("Quiz");
+  const [idealCountry, setIdealCountry] = useState({});
+  const [question, setQuestion] = useState(1);
+
+  let countryArray: object[] = [];
+  countryCodes.forEach((country: any) => {
+    countryArray.push(new Country(country));
+  });
+
+  useEffect(() => {
+    if (question < 11 || state != "Loading") {
+      return;
+    } else if (question == 11 && state == "Loading") {
+      let sortedArray = countryArray.map((country) => {
+        return {
+          cc: country.cc,
+          zscore:
+            Math.abs(country.AvgTempC - tempC) +
+            Math.abs(country.PopDensKm2 - popDens) +
+            Math.abs(country.PctImmigrant - immigrants) +
+            Math.abs(country.EngProficiency - english) +
+            Math.abs(country.PriceLvlIndex - prices) +
+            Math.abs(country.GiniCoeff - gini) +
+            Math.abs(country.DemoIndex - democracy) +
+            Math.abs(country.ActiveMilPer1000 - military) +
+            Math.abs(country.MdnInternetSpdMbps - internet) +
+            Math.abs(country.VehiclesPer1000 - cars) +
+            Math.abs(country.MeatEatenKgPersonYr - meat),
+        };
+      });
+      sortedArray.sort((countryA, countryB) => {
+        let result = countryA.zscore - countryB.zscore;
+        return result;
+      });
+
+      const myCountry = new Country(sortedArray[0].cc);
+      myCountry.init().then(() => {
+        console.log(myCountry);
+        setIdealCountry(myCountry);
+        setState("Result");
+      });
+    }
+  }, [question, state]);
+
   function handleRestart() {
     props.onQuiz("Start");
   }
+
   function handleQ1(temp: number) {
     setTempC(temp);
     //For each Country, run ZScorefunc()
@@ -71,11 +119,8 @@ function Quiz(props: any) {
   function handleQ11(durger: number) {
     setMeat(durger);
     //For each Country, run ZScorefunc()
-    setState("Result");
+    setState("Loading");
   }
-
-  const [state, setState] = useState("Quiz");
-  const [question, setQuestion] = useState(1);
 
   const [tempC, setTempC] = useState(0);
   const [popDens, setPopDens] = useState(0);
@@ -107,7 +152,10 @@ function Quiz(props: any) {
           {state == "Quiz" && question == 9 && <Q9 onQ9={handleQ9} />}
           {state == "Quiz" && question == 10 && <Q10 onQ10={handleQ10} />}
           {state == "Quiz" && question == 11 && <Q11 onQ11={handleQ11} />}
-          {state == "Result" && <Result onRestart={handleRestart} />}
+          {state == "Loading" && <Loading />}
+          {state == "Result" && (
+            <Result myCountry={idealCountry} onRestart={handleRestart} />
+          )}
         </main>
       </section>
     </>

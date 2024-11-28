@@ -106,7 +106,7 @@ mark {
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .questions-button {
@@ -118,11 +118,11 @@ mark {
   }
 
   .questions-intro {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .questions-label {
-    font-size: 1rem;
+    font-size: 1.75vh;
   }
 
   .questions-main {

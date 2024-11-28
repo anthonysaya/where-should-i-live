@@ -288,7 +288,7 @@
     "Wikipedia_Link": "https://en.wikipedia.org/wiki/Chile"
   },
   "CN": {
-    "Name": "China (PRC)",
+    "Name": "China",
     "Avg_Temp_C": 7.59,
     "Pop_Dens_Km2": 149,
     "Pct_Immigrants": 0.1,
@@ -928,7 +928,7 @@
     "Wikipedia_Link": "https://en.wikipedia.org/wiki/Nepal"
   },
   "NL": {
-    "Name": "Netherlands",
+    "Name": "the Netherlands",
     "Avg_Temp_C": 10.49,
     "Pop_Dens_Km2": 436,
     "Pct_Immigrants": 13.4,
@@ -1056,7 +1056,7 @@
     "Wikipedia_Link": "https://en.wikipedia.org/wiki/Peru"
   },
   "PH": {
-    "Name": "Philippines",
+    "Name": "the Philippines",
     "Avg_Temp_C": 26.27,
     "Pop_Dens_Km2": 391,
     "Pct_Immigrants": 0.2,
@@ -1232,7 +1232,7 @@
     "Wikipedia_Link": "https://en.wikipedia.org/wiki/South_Africa"
   },
   "KR": {
-    "Name": "South Korea (ROK)",
+    "Name": "South Korea",
     "Avg_Temp_C": 12.22,
     "Pop_Dens_Km2": 516,
     "Pct_Immigrants": 2.3,
@@ -1408,7 +1408,7 @@
     "Wikipedia_Link": "https://en.wikipedia.org/wiki/Uganda"
   },
   "AE": {
-    "Name": "United Arab Emirates",
+    "Name": "the United Arab Emirates",
     "Avg_Temp_C": 28.17,
     "Pop_Dens_Km2": 134,
     "Pct_Immigrants": 51.0,
@@ -1424,7 +1424,7 @@
     "Wikipedia_Link": "https://en.wikipedia.org/wiki/United_Arab_Emirates"
   },
   "GB": {
-    "Name": "United Kingdom",
+    "Name": "the United Kingdom",
     "Avg_Temp_C": 9.24,
     "Pop_Dens_Km2": 279,
     "Pct_Immigrants": 14.1,
@@ -1441,7 +1441,7 @@
   },
   "US": {
     "CCA2": "US",
-    "Name": "United States of America",
+    "Name": "the United States",
     "Avg_Temp_C": 9.46,
     "Pop_Dens_Km2": 35,
     "Pct_Immigrants": 15.4,

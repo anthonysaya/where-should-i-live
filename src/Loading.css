@@ -1,0 +1,12 @@
+.Loading {
+  height: 100%;
+  align-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Loading img {
+  height: 10vh;
+  max-height: 512px;
+}

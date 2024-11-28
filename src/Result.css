@@ -1,3 +1,14 @@
+.result-button {
+  background-color: #323232;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 8rem;
+  max-height: fit-content;
+  min-width: fit-content;
+}
+
 .result-description {
   font-size: 1.25rem;
   grid-column: span 5 / span 5;
@@ -54,8 +65,9 @@
 }
 
 .result-flag img {
-  height: 75%;
+  height: auto;
   width: 75%;
+  padding: 1rem;
 }
 
 .result-main {
@@ -87,6 +99,14 @@
 }
 
 @media (max-width: 991px) {
+  .result-button {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    width: 6rem;
+    max-height: fit-content;
+    min-width: fit-content;
+  }
+
   .result-description {
     font-size: 1rem;
     grid-column: span 5 / span 5;
@@ -112,6 +132,12 @@
     padding: 0.65rem;
   }
 
+  .result-flag img {
+    height: auto;
+    width: 75%;
+    padding: 0rem;
+  }
+
   .result-main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -126,5 +152,6 @@
     grid-row: span 2 / span 2;
     grid-column-start: 3;
     padding: 0.65rem;
+    text-align: center;
   }
 }

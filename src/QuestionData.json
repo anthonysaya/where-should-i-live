@@ -1,0 +1,112 @@
+{
+  "Q1": {
+    "title": "Outdoor Temperatures",
+    "labelLeft": "I want to freeze",
+    "labelRight": "I want to boil",
+    "min": -5.0,
+    "max": 30.0,
+    "step": 0.1,
+    "defaultValue": 12.5,
+    "id": "tempInput"
+  },
+  "Q2": {
+    "title": "Population Density",
+    "labelLeft": "I want to be as far away from others as I can",
+    "labelRight": "I want to be surrounded by other people",
+    "min": 0,
+    "max": 550,
+    "step": 5,
+    "defaultValue": 275,
+    "id": "denseInput"
+  },
+  "Q3": {
+    "title": "Immigration",
+    "labelLeft": "I want to be the only foreigner around",
+    "labelRight": "I want to live somewhere with a large community of expats like myself",
+    "min": 0.0,
+    "max": 51.0,
+    "step": 0.1,
+    "defaultValue": 25.5,
+    "id": "migrantInput"
+  },
+  "Q4": {
+    "title": "English Proficiency",
+    "labelLeft": "I want to be completely immersed in a language other than English",
+    "labelRight": "I should be able to comfortably speak English to a stranger on the street",
+    "min": 400,
+    "max": 650,
+    "step": 1,
+    "defaultValue": 525,
+    "id": "englishInput"
+  },
+  "Q5": {
+    "title": "Cost of Living",
+    "labelLeft": "I want to live as cheaply and affordably as possible",
+    "labelRight": "I want to live in a wealthy country with luxury prices",
+    "min": 35,
+    "max": 185,
+    "step": 1,
+    "defaultValue": 110,
+    "id": "priceInput"
+  },
+  "Q6": {
+    "title": "Wealth Distribution",
+    "labelLeft": "Everyone should get as fair and equal a share of the wealth as possible",
+    "labelRight": "People should be free to hold as much wealth as they can earn",
+    "min": 50.0,
+    "max": 90.0,
+    "step": 0.1,
+    "defaultValue": 70.0,
+    "id": "giniInput"
+  },
+  "Q7": {
+    "title": "Democracy",
+    "labelLeft": "A strong unhindered leadership is necessary to get things done",
+    "labelRight": "Multiparty elections and checks & balances are the foundation of good government",
+    "min": 0.0,
+    "max": 10.0,
+    "step": 0.05,
+    "defaultValue": 5.0,
+    "id": "demoInput"
+  },
+  "Q8": {
+    "title": "Military Forces",
+    "labelLeft": "Peace and disarmament are the world's best path forward",
+    "labelRight": "A strong military is the best way to guarantee security",
+    "min": 0.0,
+    "max": 20.0,
+    "step": 0.1,
+    "defaultValue": 10.0,
+    "id": "milInput"
+  },
+  "Q9": {
+    "title": "the Internet",
+    "labelLeft": "I want an excuse to unplug as much as I can",
+    "labelRight": "I need the strongest, fastest connection everywhere I go",
+    "min": 5,
+    "max": 275,
+    "step": 1,
+    "defaultValue": 140,
+    "id": "internetInput"
+  },
+  "Q10": {
+    "title": "Motor Vehicles",
+    "labelLeft": "Cars and trucks are destroying the planet. @&#$ Cars!",
+    "labelRight": "Cars and trucks provide me the freedom to get where I need to go on my terms",
+    "min": 10,
+    "max": 950,
+    "step": 5,
+    "defaultValue": 480,
+    "id": "carsInput"
+  },
+  "Q11": {
+    "title": "Eating Meat",
+    "labelLeft": "I want to eat less meat (or none at all)",
+    "labelRight": "Meat is a significant portion of my diet",
+    "min": 4,
+    "max": 124,
+    "step": 1,
+    "defaultValue": 64,
+    "id": "meatInput"
+  }
+}

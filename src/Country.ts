@@ -5,7 +5,7 @@ export default class Country {
   AvgTempC: number;
   AvgTempF: number;
   Capital?: string;
-  Currency?: any;
+  Currency?: string;
   DemoIndex: number;
   Demonym?: string;
   EngProficiency: number;
@@ -47,8 +47,6 @@ export default class Country {
   }
 
   async init(): Promise<any> {
-    let currArray: string[] = [];
-    let langArray: string[] = [];
     const response = await fetch(
       `https://restcountries.com/v3.1/alpha/${this.cc}`
     );

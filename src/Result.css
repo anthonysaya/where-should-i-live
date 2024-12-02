@@ -123,7 +123,7 @@
   }
 
   .result-detailContainer {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .result-flag {
@@ -147,7 +147,7 @@
   }
 
   .result-name {
-    font-size: 2rem;
+    font-size: 1.5rem;
     grid-column: span 3 / span 3;
     grid-row: span 2 / span 2;
     grid-column-start: 3;

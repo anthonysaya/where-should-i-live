@@ -18,7 +18,7 @@ export default class Country {
   PctImmigrant: number;
   PopDensKm2: number;
   PopDensMi2: number;
-  Population?: number;
+  Population?: string;
   PriceLvlIndex: number;
   Region?: string;
   ShortName: string;
@@ -46,14 +46,14 @@ export default class Country {
     this.WikiLink = CountryData[this.cc].Wikipedia_Link;
   }
 
-  async init(): Promise<any> {
+  async init(): Promise<void> {
     const response = await fetch(
       `https://restcountries.com/v3.1/alpha/${this.cc}`
     );
     if (!response.ok) {
       throw new Error(`API call failed for ${this.cc}.`);
     }
-    const jsonResponse = await response.json();
+    const jsonResponse: RESTCountriesResponse = await response.json();
 
     this.Capital = jsonResponse[0].capital;
     this.Currency = Object.values(jsonResponse[0].currencies)[0].name;
@@ -69,3 +69,28 @@ export default class Country {
     this.Region = jsonResponse[0].subregion;
   }
 }
+
+type RESTCountriesResponse = {
+  capital: string;
+  currencies: {
+    [key: string]: {
+      name: string;
+    };
+  };
+  flags: {
+    svg: string;
+  };
+  demonyms: {
+    eng: {
+      m: string;
+    };
+  };
+  languages: {
+    [key: string]: string;
+  };
+  name: {
+    official: string;
+  };
+  population: number;
+  subregion: string;
+}[];

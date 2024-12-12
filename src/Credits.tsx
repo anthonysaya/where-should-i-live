@@ -2,9 +2,9 @@ import React from "react";
 import logo from "./logo.png";
 import "./Credits.css";
 
-function Credits(props: any) {
+function Credits(props: { onBack: () => void }) {
   function handleBack() {
-    props.onCredits("Start");
+    props.onBack();
   }
   return (
     <>

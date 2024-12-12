@@ -1,25 +1,38 @@
 import React, { useState } from "react";
-import Start from "./Start.tsx";
+import Home from "./Home.tsx";
 import Credits from "./Credits.tsx";
 import Quiz from "./Quiz.tsx";
 import "./App.css";
 
 function App() {
-  const [state, setState] = useState("Start");
-  function handleStart(start: string) {
-    setState(start);
-  }
-  function handleCredits(credits: string) {
-    setState(credits);
-  }
-  function handleQuiz(quiz: string) {
-    setState(quiz);
-  }
+  const [state, setState] = useState<"Home" | "Credits" | "Quiz">("Home");
+
   return (
     <>
-      {state == "Start" && <Start onStart={handleStart} />}
-      {state == "Credits" && <Credits onCredits={handleCredits} />}
-      {state == "Quiz" && <Quiz onQuiz={handleQuiz} />}
+      {state == "Home" && (
+        <Home
+          onStart={() => {
+            setState("Quiz");
+          }}
+          onCredits={() => {
+            setState("Credits");
+          }}
+        />
+      )}
+      {state == "Credits" && (
+        <Credits
+          onBack={() => {
+            setState("Home");
+          }}
+        />
+      )}
+      {state == "Quiz" && (
+        <Quiz
+          onRestart={() => {
+            setState("Home");
+          }}
+        />
+      )}
     </>
   );
 }

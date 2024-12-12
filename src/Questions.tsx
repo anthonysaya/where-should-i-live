@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import QuestionData from "./QuestionData.json";
 import "./Questions.css";
 
-function Questions(props: any) {
+function Questions(props: {
+  qNum: keyof typeof QuestionData;
+  onQuestions: (input: number) => void;
+}) {
   const [answer, setAnswer] = useState(12.5);
-  const [questNum, setQuestNum] = useState("Q1");
 
-  function handleChange(e: any) {
-    setAnswer(e.target.value);
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    setAnswer(parseInt(e.target.value));
   }
   function handleQuestions() {
     props.onQuestions(answer);
@@ -15,7 +17,7 @@ function Questions(props: any) {
   }
 
   function setDefaultValue() {
-    switch (questNum) {
+    switch (props.qNum) {
       case "Q1":
         setAnswer(QuestionData["Q2"].defaultValue);
         break;
@@ -49,10 +51,6 @@ function Questions(props: any) {
     }
   }
 
-  useEffect(() => {
-    setQuestNum("Q" + props.qNum);
-  }, [props.qNum]);
-
   return (
     <>
       <section className="questions-container">
@@ -60,26 +58,26 @@ function Questions(props: any) {
           Use the bar to indicate your feelings on:
           <div className="line-break" />
           <br />
-          <mark>{QuestionData[questNum].title}</mark>
+          <mark>{QuestionData[props.qNum].title}</mark>
         </section>
         <main className="questions-main">
           <div className="questions-label">
-            {QuestionData[questNum].labelLeft}
+            {QuestionData[props.qNum].labelLeft}
           </div>
           <div className="questions-input">
             <input
               type="range"
-              min={QuestionData[questNum].min}
-              max={QuestionData[questNum].max}
-              step={QuestionData[questNum].step}
+              min={QuestionData[props.qNum].min}
+              max={QuestionData[props.qNum].max}
+              step={QuestionData[props.qNum].step}
               className="questions-slider"
-              id={QuestionData[questNum].id}
+              id={QuestionData[props.qNum].id}
               value={answer}
               onChange={handleChange}
             />
           </div>
           <div className="questions-label">
-            {QuestionData[questNum].labelRight}
+            {QuestionData[props.qNum].labelRight}
           </div>
         </main>
         <section className="questions-buttonContainer">

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import logo from "./logo.png";
 import "./Result.css";
+import Country from "./Country";
 
-function Result(props: any) {
+function Result(props: { onRestart: () => void; myCountry: Country }) {
   function handleRestart() {
-    props.onRestart("Start");
+    props.onRestart();
   }
   return (
     <>

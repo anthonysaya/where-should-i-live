@@ -1,4 +1,5 @@
-export const countryCodes: string[] = [
+import CountryData from "./CountryData.json";
+export const countryCodes: (keyof typeof CountryData)[] = [
   "AL",
   "DZ",
   "AR",

@@ -2,25 +2,31 @@ import React, { useState, useEffect } from "react";
 import logo from "./logo.png";
 import Country from "./Country.ts";
 import { countryCodes } from "./CountryCode.ts";
+import QuestionData from "./QuestionData.json";
+import CountryData from "./CountryData.json";
 import Questions from "./Questions.tsx";
 import Loading from "./Loading.tsx";
 import Result from "./Result.tsx";
 import "./Quiz.css";
 
-function Quiz(props: any) {
-  const [state, setState] = useState("Quiz");
-  const [idealCountry, setIdealCountry] = useState({});
-  const [question, setQuestion] = useState(1);
+interface cArray extends Country {}
 
-  let countryArray: any[] = [];
-  countryCodes.forEach((country: any) => {
+function Quiz(props: { onRestart: () => void }) {
+  const [state, setState] = useState<"Home" | "Quiz" | "Loading" | "Result">(
+    "Quiz"
+  );
+  const [idealCountry, setIdealCountry] = useState<Country | null>(null);
+  const [question, setQuestion] = useState<keyof typeof QuestionData>("Q1");
+
+  let countryArray: cArray[] = [];
+  countryCodes.forEach((country: keyof typeof CountryData) => {
     countryArray.push(new Country(country));
   });
 
   useEffect(() => {
-    if (question < 11 || state != "Loading") {
+    if (question != "Q11" || state != "Loading") {
       return;
-    } else if (question == 11 && state == "Loading") {
+    } else if (question == "Q11" && state == "Loading") {
       let sortedArray = countryArray.map((country) => {
         return {
           cc: country.cc,
@@ -53,7 +59,7 @@ function Quiz(props: any) {
   }, [question, state]);
 
   function handleRestart() {
-    props.onQuiz("Start");
+    props.onRestart();
   }
 
   const [tempC, setTempC] = useState(0);
@@ -71,47 +77,47 @@ function Quiz(props: any) {
   function handleQuestions(input: number) {
     if (state == "Quiz") {
       switch (question) {
-        case 1:
+        case "Q1":
           setTempC(input);
-          setQuestion(question + 1);
+          setQuestion("Q2");
           break;
-        case 2:
+        case "Q2":
           setPopDens(input);
-          setQuestion(question + 1);
+          setQuestion("Q3");
           break;
-        case 3:
+        case "Q3":
           setImmigrants(input);
-          setQuestion(question + 1);
+          setQuestion("Q4");
           break;
-        case 4:
+        case "Q4":
           setEnglish(input);
-          setQuestion(question + 1);
+          setQuestion("Q5");
           break;
-        case 5:
+        case "Q5":
           setPrices(input);
-          setQuestion(question + 1);
+          setQuestion("Q6");
           break;
-        case 6:
+        case "Q6":
           setGini(input);
-          setQuestion(question + 1);
+          setQuestion("Q7");
           break;
-        case 7:
+        case "Q7":
           setDemocracy(input);
-          setQuestion(question + 1);
+          setQuestion("Q8");
           break;
-        case 8:
+        case "Q8":
           setMilitary(input);
-          setQuestion(question + 1);
+          setQuestion("Q9");
           break;
-        case 9:
+        case "Q9":
           setInternet(input);
-          setQuestion(question + 1);
+          setQuestion("Q10");
           break;
-        case 10:
+        case "Q10":
           setCars(input);
-          setQuestion(question + 1);
+          setQuestion("Q11");
           break;
-        case 11:
+        case "Q11":
           setMeat(input);
           setState("Loading");
           break;
@@ -130,7 +136,7 @@ function Quiz(props: any) {
             <Questions qNum={question} onQuestions={handleQuestions} />
           )}
           {state == "Loading" && <Loading />}
-          {state == "Result" && (
+          {state == "Result" && idealCountry && (
             <Result myCountry={idealCountry} onRestart={handleRestart} />
           )}
         </main>
